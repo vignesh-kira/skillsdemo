@@ -1,0 +1,47 @@
+*, *:after, *:before {
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+
+
+#Form {
+}
+
+
+.right {
+  float: right;
+}
+
+.input-container {
+  margin: 0;
+  margin-bottom: 5px;
+  padding-top: 1px;
+  position: relative;
+  
+}
+.input-container label {
+  position: absolute;
+  top: 14px;
+  left: 45%;
+  color: white;
+  transition: all 0.2s;
+  cursor: text;
+  font-family: sans-serif;
+  font-size: 20px;
+  text-align:  center !important;
+}
+.input-container input {
+  font-family: sans-serif;
+  font-size: 16px;
+  color: white;
+}
+.input-container input:focus, .input-container input.filled {
+
+}
+.input-container input:focus + label, .input-container input.filled + label {
+  font-size: 13px;
+  line-height: 12px;
+  top: 4px;
+  color: cornsilk ;
+}
