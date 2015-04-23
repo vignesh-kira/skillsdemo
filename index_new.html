@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>VikTree</title>
+
+
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+        <link href="css/viktree_style.css" rel="stylesheet" type="text/css">
+        <link href="css/floatlabel.css" rel="stylesheet" type="text/css">
+
+        <script src = "js/jquery.js" ></script>
+        <script type="text/javascript" src="js/viktree_script.js"></script>
+        <script src='js/jquery-ui-1.10.4.js'></script>  
+    </head>
+    <body>
+
+        <header>
+            <span class="header_logo" ></span>
+            <div id="homepage_header">
+
+                <div id="login_button"><a  id="login_link" onClick="start_first_popup(1);">Log In</a></div>
+            </div>
+        </header>   
+        <div class="clearfix"></div>
+        <div id="home_page">
+            <div id=home_page_body>
+
+                <div class="large_text large_text_align align_center">Welcome Good Day !!!</div><br/>
+                <div class="medium_text align_center">This is a demo of my skills</div><br/>
+                <div class="company_name align_center"> VikTree</div>
+                <div class="clearfix"></div>
+
+                <div class="align_center">
+                    <input type="button" class="home_page_start_button " value="Start" onClick="start_first_popup(2);" />
+                </div>
+            </div>
+
+            <div id="home_start_first_popup">
+                <div class="close_popup" onClick="close_start_first_popup();"></div>
+                <div style="clear:both"></div>
+                <div class="popup_body_wrap align_center">
+
+                    <div class="input-container">
+                        <input id="Input-Email" class="login_clear_textBox" name="Input-Email" type="text" >
+                        <label for="Input-Email">email</label>
+                    </div>
+                    <div class="input-container">
+                        <input id="Input-Street" class="login_clear_textBox"  name="Input-Street" type="password">
+                        <label for="Input-Street">password</label>
+                    </div>
+                    <div class="forgot_password_font" onClick="forgot_password_show()">Forgot Password</div>
+                    </br>
+
+                    <input type="button" class="button_size_small home_page_start_button"  value="Log In" onClick="userpage_show();"/>
+                    <div style="clear:both"></div>
+                    </br></br></br>
+                    <div id="home_start_first_popup_extension">
+                        <span class="small_text">Don't have an account, Who are you?.</span> </br> 
+                        <input type="button" class="home_page_start_button button_size_small" value="Person" onClick="home_start_person_box();"/>
+                        <input type="button" class="home_page_start_button button_size_small" value="Business" onClick="home_start_person_business_details();"/> </br>
+                    </div>
+                </div>
+            </div>
+            <div id="home_start_person_box">
+                <div class="button_previous" onClick="back_home_start_person();"></div>
+                <div class="close_popup" onClick=" close_home_start_person();"></div>
+                <div style="clear:both"></div>
+                <div class="popup_body_wrap align_center">
+                    <div id="home_start_person_firsthalf">
+                        <select class="clear_selectBox"  name="buildingId">
+                            <option>Select your building</option>
+                        </select><br>
+                        <input type="button" class="button_alignment_size home_page_start_button" value="Continue" onClick="start_eligible_personal_details();"/></br></br>
+                    </div>
+                    <div id="home_start_location">
+                        <input type="text" class="login_clear_textBox complete_address_padding"  placeholder="Complete address" id="autocomplete" onFocus="geolocate();"  required/></br>
+                        <input type="text" class="login_clear_textBox postal_code_padding" placeholder="Postal Code" id="postal_code_1"  required/><br>
+                        <input type="button" class="home_page_start_button button_size_small" value="Request" onClick="start_person_type_box();"/>
+                    </div>
+
+                </div>
+            </div>
+            <div id="start_eligible_personal_details" >   
+                <div class="button_previous" onClick="back_start_eligible_personal_details();"></div>
+                <div class="close_popup" onClick="close_start_eligible_personal_details();"></div>
+                <div style="clear:both"></div>
+                <div class="popup_body_wrap align_center"> 
+                    <form name="requestPersonalForm">
+                        <input type="text" class="clear_textBox"  placeholder="Enter Name" name="name" ng-model="modelRequest.name" ng-minlength="5" ng-maxlength="45" required/><br/>
+                        <input type="email" class="clear_textBox" placeholder="Enter Email Address" name="emailAddress" ng-model="modelRequest.emailAddress" required/><br/>
+                        <input type="email" class="clear_textBox" placeholder="Enter Password" name="password" ng-model="modelRequest.emailAddress" required/><br/>
+                        <input type="email" class="clear_textBox" placeholder="Confirm Password" name="confirm_passwrd" ng-model="modelRequest.emailAddress" required/><br/>
+                        <input type="text" class="clear_textBox" placeholder="Enter Phone Number" name="phoneNumber" ng-minlength="10" ng-maxlength="10" ng-model=modelRequest.phoneNumber" required/><br/>
+                        <input type="button" class="home_page_start_button button_size_small" value="Okay" onClick="userpage_show();"/> </br>
+                        <input type="hidden" id="user_type">
+                    </form>
+                    <input type="hidden" id="check_person_backbutton">
+                </div>
+            </div>
+            <div id="start_person_type_popup">
+                <div class="button_previous" onClick="back_start_person_type_popup();"></div>
+                <div class="close_popup" onClick=" close_start_person_type_popup();"></div>
+                <div style="clear:both"></div>
+                <div class="popup_body_wrap align_center"> 
+                    <input type="button" class="home_page_start_button button_size_small" value="Residence" onClick="request_create_residence();"/>
+                    <input type="button" class="home_page_start_button button_size_small" value="Office" onClick="request_create_office();"/> <br>
+                </div>
+            </div>
+            <div id="home_start_person_business_details">
+                <div class="button_previous" onClick="back_home_start_person_business_details();"></div>
+                <div class="close_popup" onClick="close_home_start_person_business_details();"></div>
+                <div style="clear:both"></div>
+                <div class="popup_body_wrap align_center">               
+                    <div class="small_text">Please enter your contact information</div>
+                    <input type="text" class="clear_textBox"  ng-model="modeBusinessClubRequest.name" placeholder="Name" name="name" ><br>
+                    <input type="text" class="clear_textBox" ng-model="modelBusinessClubRequest.phoneNumber" placeholder=" Phone Number" name="phoneNumber" ><br>
+                    <input type="text" class="clear_textBox" ng-model="modelBusinessClubRequest.position" placeholder="Position" name="position" ><br>
+                    <input type="text" class="clear_textBox" ng-model="modelBusinessClubRequest.company" placeholder="Company" name="company" ><br>
+                    <input type="button" class="home_page_start_button button_size_small" value="Person in Office" onClick="home_start_person_personoffice_greet();">
+                    <input type="button" class="home_page_start_button button_size_small" value="Business" onClick="home_start_person_business_greet();"/> <br>
+                </div>
+            </div>
+            <div id="home_start_person_business_greet">
+                <div class="close_popup" onClick="close_home_start_person_business_greet();"></div>
+                <div style="clear:both"></div>
+                <div class="popup_body_wrap align_center">  
+                    <div class="small_text">Thank you . Our Manager will contact you as soon as possible.</div></br>
+                    <input type="button" class="home_page_start_button button_size_small" value="Okay" onClick="close_home_start_person_business_greet();"/> </br>
+                </div>
+            </div>
+
+            <div id="home_start_person_personoffice_greet">
+                <div class="close_popup" onClick="close_home_start_person_personoffice_greet();"></div>
+                <div style="clear:both"></div>
+                <div class="popup_body_wrap align_center">  
+
+                    <div class="small_text">Thank you .We will check our service availability in your office and we will reach you soon</div><br>
+                    <input type="button" class="home_page_start_button button_size_small" value="Okay" onClick="close_home_start_person_personoffice_greet();"> <br>
+                </div>
+            </div>
+
+            <div id="password_forgot_popup">
+                <div class="button_previous" onClick="back_forgot_password_show()"></div>
+                <div class="close_popup" onClick="close_forgot_password_shows()"></div>
+                <div style="clear:both"></div>
+                <div class="popup_body_wrap align_center"> 
+                    <div id="password_request_email">
+                        <div class="small_text">Please Enter Your Email Id</div> <br/><br/>
+                        <input type="text" class="clear_textBox" id="email_request_input" /><br/>
+
+                        <input type="button" class="home_page_start_button button_size_small" value="Next" onClick="password_reset_link();">
+                    </div>
+                    <div id="password_request_text">
+                        <div class="small_text">If your email matches our records you will be sent an email link to reset your password.</div> <br/><br/>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="pop_up_background"></div>
+        <div id="pop_up_background2"></div>
+        <!-- Userpage -->
+        <div id="userpage_body_body" ng-app="RegistrationApp">
+
+            <div class="header_wrapper" ng-controller="LoginController">
+                <header>
+                    <span class="medium_text">Welcome, </span>
+                    <span class="medium_text" style="text-transform: capitalize">&nbsp;{{parsedProfile.name}}</span>
+                    <div class="setting_icon" id="myButton" > </div>
+                </header>
+            </div>
+            <div class="clearfix"></div>
+            <div id="userpage_body_wrapper">
+
+
+                <div id="first_mainbar">
+                    <div id="firstup_mainbar">  
+                        <div class="medium_text userpage_tabs">Plan</div>
+                        <div class="h_line"></div>
+                        </br></br>
+                        <div id="expired_user_show">
+                            <input type="button" class="home_page_start_button" value="ACTIVATE" onClick="userpage_plan_select();"/>
+                        </div></br></br>
+                        <div id="request_user_show">
+                            <input type="button" class="home_page_start_button" value="VIEW PLAN" onClick="userpage_plan_select();"/>
+                        </div>
+                    </div>
+
+                    <div id="firstdown_mainbar">  
+                        <div class="medium_text userpage_tabs">Next Pick-Up :</div>
+                        <div class="h_line"></div>
+                        </br>
+                        <div id="active_next_pick_up_show">
+                            <div class="medium_text">Monday, April 21 2014</div>
+                            <div>
+                                <input type="button" class="home_page_start_button" value="Change Pick-Up Day" onClick="changeday_show();" />
+                            </div>
+                        </div>
+                       
+
+                    </div>
+                </div>
+
+
+                <div  id="second_mainbar" style="align:center" ng-controller=modelController">
+                    <div class="medium_text userpage_tabs">Activity Box</div>
+                    <div class="h_line"></div>
+                  
+                    <span class="total_number">TOTAL :</span>
+                    <span class="total_number" id="total_properties_count">00</span>
+                    <div style="clear:both"></div> <br/>
+                    <div class="total_weight">TOTAL WEIGHT:</div>
+                    <div style="clear:both"></div>
+
+                    <div class="display_weight">
+                        <div class="display_weight_font1" id="total_properties_weight">0</div>
+                        <div class="display_weight_font2">lbs</div>
+                    </div>
+                    <div>
+                        <input type="button" class="go_button" ng-click="" value="GO" />
+                    </div>
+
+                </div>
+                <div id="third_mainbar">
+                    <div id="thirdup_mainbar">
+                        <div class="medium_text userpage_tabs">Statistics</div>
+                        <div class="h_line"></div>
+                        <div id="donut-example" style="top:5px; width:300px; height:260px;"></div>
+                    </div>  
+
+                    <div id="thirddown_mainbar">
+                        <div class="medium_text userpage_tabs">Calendar</div>
+                        <div class="h_line"></div>
+                        <div id="calendar" ></div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        <div id="start_eligible_plan_select_box" ng-controller="PlanController">
+
+            <div class="close_popup" onClick="close_start_eligible_plan_select_box();"></div>
+            <div style="clear:both"></div>
+            <div class="plan_body_wrap align_center">
+
+                <div class="plan_header">
+                    <div class="plan_select">Plans</div>
+                </div>
+                <div class="plan_block">
+                    <div class="plan_body">   
+                        <div class="plan_name">  A </div>
+                        <div class="plan_description"> 1 mois </div>
+                        <div class="plan_description"> 4 semaines </div>
+                        <div class="plan_description"> $80 </div>
+                        <div class="plan_description"> 10 lbs / semaine </div>
+                        <div class="plan_description"> 1 collecte & livraison / semaine</div>
+                        <div class="plan_description"> aaa inclus </div>
+                        <input type="button" class="subscribe_button" value="S'INSCRIRE" ng-click="update(1)" onClick="start_eligible_duration_select();" />
+                    </div>
+                    <div class="plan_body"> 
+                        <div class="plan_name">  B </div>
+                        <div class="plan_description"> 3 mois </div>
+                        <div class="plan_description"> 13 semaines </div>
+                        <div class="plan_description"> $75 </div>
+                        <div class="plan_description"> 10 lbs / semaine </div>
+                        <div class="plan_description"> 1 collecte & livraison / semaine</div>
+                        <div class="plan_description"> bbb inclus </div>
+                        <input type="button" class="subscribe_button" value="S'INSCRIRE" ng-click="update(2)" onClick="start_eligible_duration_select();" />
+                    </div>
+                    <div class="plan_body"> 
+                        <div class="plan_name">  C </div>
+                        <div class="plan_description"> 6 mois </div>
+                        <div class="plan_description"> 26 semaines </div>
+                        <div class="plan_description"> $70 </div>
+                        <div class="plan_description"> 10 lbs / semaine </div>
+                        <div class="plan_description"> 1 collecte & livraison / semaine</div>
+                        <div class="plan_description"> ccc inclus </div>
+                        <input type="button" class="subscribe_button" value="S'INSCRIRE" ng-click="update(3)"onClick="start_eligible_duration_select();" />
+                    </div>
+                    <div class="plan_body"> 
+                        <div class="plan_name">  D </div>
+                        <div class="plan_description"> 1 an </div>
+                        <div class="plan_description"> 52 semaines </div>
+                        <div class="plan_description"> $65 </div>
+                        <div class="plan_description"> 10 lbs / semaine </div>
+                        <div class="plan_description"> 1 collecte & livraison / semaine</div>
+                        <div class="plan_description"> ddd inclus </div>
+                        <input type="button" class="subscribe_button" value="S'INSCRIRE" ng-click="update(4)" onClick="start_eligible_duration_select();" />
+                    </div>
+                    <div class="dry_clean"></div>
+                </div>
+            </div>
+        </div> 
+        <div id="start_eligible_duration_select">
+            <!--                <div class="button_next" onClick=";"></div> -->
+            <div class="button_previous" onClick="back_start_eligible_duration_select();"></div>
+            <div class="close_popup" onClick="close_start_eligible_duration_select();"></div>
+            <div style="clear:both"></div>
+            <div class="popup_body_wrap align_center"> 
+                <div class="small_text">Please Select Your Service Day & Time Slot</div>
+
+                <input type="text" class="clear_textBox" ng-model="civicDetails.doorNumber" ng-minlength="2" ng-maxlength="5" name="doorNumber" placeholder="Apt./Suite Number" required/><br>
+                <div id="eligible_day"> 
+
+
+                    <select class="clear_selectBox" id="day_list"> 
+                        <option>Select Day</option>
+                    </select> </br> </br>
+
+                </div>
+                <div id="eligible_time_slot">  
+
+                    <select class="clear_selectBox" id="timeslot_list" style="color:white" >
+                        <option> Select Time</option>
+                    </select>
+                </div>
+
+                <div id="eligible_club_instructions">
+
+                </div>
+
+                <input type="button" class="home_page_start_button button_size_small" value="Next" onClick="the_end();">
+            </div>
+        </div>
+
+
+        <div id="gear_account_show" >   
+            <div class="close_image_gear" id="close_setting_bar"></div>
+            <!--            <input type="button" class="gear_close_button" value="Close" />-->
+            <input type="button" class="gear_icon_small" value="Profile" id="close_setting_bar">
+            <input type="button" class="gear_icon_small" value="Credit Card" id="close_setting_bar" onClick="user_creditcard_details();">
+            <input type="button" class="gear_icon_small" value="Billing History" id="close_setting_bar">
+            <input type="button" class="gear_icon_small" value="Help & Support" id="helpnsupport_button">
+            <div id="helpnsupport_side_menu">
+                <input type="button" class="gear_icon_small" value="Terms Of Use" onClick="open_userdashboard_terms();">
+                <input type="button" class="gear_icon_small" value="FAQ" id="close_setting_br" onClick="user_faq();">
+                <input type="button" class="gear_icon_small" value="Privacy Policy" id="close_setting_bar" onClick="user_privacy();">
+                <input type="button" class="gear_icon_small" value="End User Agreement" id="close_setting_bar" onClick="user_endsuser_agreement();">
+
+            </div>
+            <input type="button" class="gear_icon_small" value="LogOut" id="close_setting_bar" onClick="user_logout();">
+        </div>
+
+        <script type="text/javascript">
+            $("#myButton").click(function () {
+
+                // Set the effect type
+                var effect = 'slide';
+                // Set the options for the effect type chosen
+                var options = {direction: 'right'};
+                // Set the duration (default: 400 milliseconds)
+                var duration = 200;
+                $('#gear_account_show').toggle(effect, options, duration);
+                $(".setting_icon").hide();
+                
+                $('#userpage_body_wrapper').animate({'width': '+= 50','direction' : 'left'});
+            });
+            $("#close_setting_bar").click(function () {
+
+                // Set the effect type
+                var effect = 'slide';
+                // Set the options for the effect type chosen
+                var options = {direction: 'right'};
+                // Set the duration (default: 400 milliseconds)
+                var duration = 200;
+                $('#gear_account_show').toggle(effect, options, duration);
+                $(".setting_icon").show();
+            });
+            $("#helpnsupport_button").click(function () {
+
+                // Set the effect type
+                var effect = 'slide';
+                // Set the options for the effect type chosen
+                var options = {direction: 'up'};
+                // Set the duration (default: 400 milliseconds)
+                var duration = 300;
+                $('#helpnsupport_side_menu').toggle(effect, options, duration);
+            });
+        </script>
+    </body>
+</html>

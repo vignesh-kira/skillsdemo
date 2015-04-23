@@ -1,0 +1,615 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 19-Apr-2015, 11:37:39 PM
+    Author     : vigneshwaran
+*/
+
+@font-face
+{
+    font-family: Quicksand;
+    src: url("../fonts/Quicksand-Regular.otf");
+}
+
+html,body{
+    margin:0;padding:0;
+}
+html{
+    height: 100%;
+
+}
+body {
+    min-height: 100%;
+
+    background:url(../img/one.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;	
+    background-size: cover;  
+}
+
+.header_logo{ 
+    background-image: url("../img/logo_new2.png"); 
+    position: absolute;
+    left: 10px; 
+    top: 5px; 
+    width: 64px; 
+    height: 64px; 
+    z-index: 999;
+    cursor:pointer;
+}
+#login_button
+{
+    float: right;
+    margin-top: 20px;
+    margin-right: 10px;
+    font-size: 29px;
+    font-family: "Quicksand";
+    color: #FFF;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#login_button:hover
+{
+
+    background:#BFBFBF;
+    color:black;
+}
+
+.large_text{
+    color:rgb(255,255,255);
+    font-family: Quicksand;
+    font-size:60px;
+}
+
+.large_text_align{
+    margin-top:6%;
+}
+
+.medium_text{
+    color:rgb(255,255,255);
+    font-family: Quicksand;
+    font-size: 32px;
+
+}
+.userpage_tabs{
+    font-size: 26px;
+}
+.align_center{
+    text-align: center;
+
+}
+.clearfix{
+    clear:both;
+}
+
+#home_page_body {
+    width: 80%;
+    margin: 0 auto 10% auto;
+    position:relative;
+
+
+
+}
+.company_name{
+    color:rgb(255,255,255);
+    font-family: Quicksand;
+    font-size: 90px;
+
+}
+.home_page_start_button{
+    font-size: 20px;
+    font-family: "Quicksand";
+    background: transparent ;
+    border: 1px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 18px 35px 20px 35px;
+    color: rgb( 255, 255, 255 ) ;
+    margin-top: 2%;
+}
+
+
+
+.home_page_start_button:hover{
+    background: white ;
+    color:#BFBFBF ;
+}
+
+
+
+
+#pop_up_background{
+    display:none;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background:black;
+    position: fixed;
+    z-index: 10;
+    opacity: 0.9;
+}
+
+
+#home_start_first_popup,#home_start_person_box,#start_eligible_personal_details,#start_person_type_popup,#home_start_person_business_details,#home_start_person_business_greet,#home_start_person_personoffice_greet,#password_forgot_popup{
+    display: none;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    font-family: Verdana,Geneva,sans-serif;
+    font-size: 11px;
+    background: transparent;
+    position: fixed;
+
+    z-index:11;
+
+
+}
+#start_eligible_plan_select_box,#start_eligible_duration_select{
+    display: none;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    font-family: Verdana,Geneva,sans-serif;
+    font-size: 11px;
+    background: transparent;
+    position: fixed;
+    z-index: 300;
+}
+
+.close_popup{ 
+    background-image: url("../img/close_red.png"); 
+    position: relative;
+    z-index: 1; 
+    top: 2%;
+    right: 2%;
+    float: right;
+    width: 32px; 
+    height:32px;
+    cursor:pointer;
+}
+
+.login_clear_textBox{
+    display: inline-block;
+    position: relative;
+    font-size: 13px;
+    font-family: "Quicksand";
+    background: transparent;
+    border: 1px solid;
+    padding: 0 32px 10px 25px;
+    padding-top: 19px;
+    padding-bottom: 10px;
+    color: rgb( 255, 255, 255 );
+    text-align: center;
+    outline: 0;
+    border-radius: 29px;
+    padding-bottom: 13px;
+    margin-bottom: 4px;
+}
+
+.popup_body_wrap{
+
+    margin-top:7%;
+
+
+}
+.plan_body_wrap{
+
+    margin-top:1%;
+
+
+}
+
+.forgot_password_font{
+    color:rgb(255,255,255);
+    font-family: Quicksand;
+    font-size: 13px;
+    cursor: pointer;
+
+}
+
+.forgot_password_font:hover{
+    text-decoration:underline
+}
+
+.small_text{
+    color:rgb(255,255,255);
+    font-family: Quicksand;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+.button_size_small{
+    font-size: 16px;
+    margin-right: 2%;
+    margin-left: 2%;
+}
+
+.button_previous{
+    background-image: url("../img/logoback.png");
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    float: left;
+    top: 44%;
+    left: 3%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+
+}
+.clear_selectBox{
+    display: inline-block;
+    position: relative;
+    margin: 10px;
+    font-size: 13px;
+    font-family: "Quicksand";
+    background: transparent;
+    border: 1px solid;
+    border-radius: 25px;
+    padding: 0 12px 10px 75px;
+    padding-top: 12px;
+    color: white;
+    text-align: center;
+    outline: 0;
+}
+
+.complete_address_padding{
+    width: 30%;
+    margin: 10px;
+}
+.postal_code_padding{
+    width:20%;
+    margin: 10px;
+}
+
+.clear_textBox{
+    display: inline-block;
+    position: relative;
+    margin: 7px;
+    font-size: 13px;
+    font-family: "Quicksand";
+    background: transparent;
+    border: 1px solid;
+    border-radius: 25px;
+    padding: 0 35px 10px 25px;
+    padding-top: 12px;
+    color: rgb( 255, 255, 255 );
+    text-align: center;
+    outline: 0;
+}
+#password_request_text{
+    display:none;
+}
+
+#userpage_body_body{
+    display:none;
+    width: 100%;
+    height:100%;
+    background-color: transparent;
+    /*    padding:10px;
+        padding-left: 19px;
+        padding-right: 20px;*/
+    font-family:Verdana, Geneva, sans-serif;
+    font-size:11px;  
+    position: fixed;
+    z-index:20;
+    text-align: center;
+    top: 0%;
+
+}
+
+.setting_icon{
+    background-image: url("../img/set2.png"); 
+    top: 2%; 
+    right:2%;
+    position:absolute;
+    float:right;
+    width: 32px; 
+    height: 32px; 
+    z-index: 5;
+    cursor: pointer;
+
+}
+
+#userpage_body_wrapper {
+    width: 80%;
+    left:5%;
+    right:5%;
+    margin: 2% auto 5% auto;
+    position:relative;
+}
+
+#first_mainbar { 
+    float:left;
+    width:29%;
+    height: 750px; 
+    margin:0px 1% 0px 0px;
+    border:0px; 
+    z-index: 1;
+
+
+}
+#second_mainbar { 
+
+    background-color:rgba(255,255,255,0.1); 
+    float:left;
+    width: 30%;
+    height: 750px; 
+    margin-bottom:10px ;
+    margin-right:1% ;
+    border:0px; 
+    z-index: 1;
+
+}
+#third_mainbar { 
+
+
+    float:left;
+    width:29%;
+    height: 750px; 
+    margin-bottom:10px ;
+    border:0px; 
+    z-index: 1;
+}
+.h_line{
+    width:100%; 
+    height:1px; 
+    background: #fff;
+    margin-bottom: 20px;
+}
+
+#firstup_mainbar { 
+
+    background-color:rgba(255,255,255,0.1);  
+    height: 300px; 
+    margin-bottom: 10px;
+    border:0px; 
+    z-index: 1;
+}
+
+#thirddown_mainbar { 
+    background-color:rgba(255,255,255,0.1);   
+
+    height: 430px; 
+    margin:10px 0x 0px 0px;
+    border:0px; 
+    z-index: 1;
+    height: 430px;  margin: 10px 0x 0px 0px;  border: 0px;   
+
+}
+#firstdown_mainbar { 
+
+    background-color:rgba(255,255,255,0.1); 
+    height: 250px; 
+    margin-bottom:10px ;
+    border: 0px; 
+
+
+}
+
+
+
+#thirdup_mainbar { 
+
+    background-color:rgba(255,255,255,0.1);
+    height: 300px; 
+    margin-bottom:10px ;
+    border:0px; 
+    z-index: 1;
+}
+
+
+.total_number{
+    color:white;
+    font-family: Quicksand;
+    font-size: 27px;
+    margin-bottom: 10px;
+
+    position:relative;
+
+}
+.total_weight{
+    color:white;
+    font-family: Quicksand;
+    font-size: 25px;
+    margin-bottom: 2px;
+
+    position:relative;
+
+}
+.display_weight{
+    background-color:rgba(255,255,255,.3);
+    width: 35%;
+    height:50px;
+    position:relative;
+    left: 10%;
+    margin-left: 15px;
+    margin-top: 5px;
+    float: left;
+    border-radius: 3px;
+    color:white;
+
+}
+.display_weight_font1{
+    float:left;
+    padding:8px 5px 10px 10px;
+    font-family: Quicksand;
+    font-size: 31px;
+
+}
+.display_weight_font2{
+    float:left;
+    padding:8px 5px 10px 5px;
+    font-family: Quicksand;
+    font-size: 30px;
+
+}
+.go_button{
+    position: relative;
+    margin: 5px;
+    height:50px;
+    margin-left: 15px;
+    font-size: 30px;
+    width:35%;
+    font-family: "Quicksand";
+    background-color:rgba(255,255,255,.3);
+    border-radius: 5px;
+    cursor: pointer;
+    float: left;
+    left:10%;
+    padding: 5px 35px 20px 35px;
+
+    color: white;
+    border:none;
+    outline:0;
+    font-weight: bold;
+}
+.go_button:hover{
+    background: white;
+    color:#BFBFBF;
+}
+#active_next_pick_up_show{
+
+}
+#nonactive_next_pick_up_show{
+    display:none;
+}
+
+#pop_up_background2
+{
+    display:none;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background:black;
+    position: fixed;
+    z-index: 30;
+    opacity: 0.9;
+
+}
+.plan_select{
+    color:white;
+    font-family: Quicksand;
+    font-size: 25px;
+    position:relative;
+    margin-bottom: 1%;
+
+
+}
+.plan_block{
+    text-align:center;
+    margin-left: 23%;
+}
+
+.plan_body{
+    background-color:rgba(0,204,204,0.8); 
+    float:left;
+    width:200px;
+    height: 432px; 
+    border-radius: 10px;
+    margin-bottom: 2px;
+    margin-right:1px ;
+    border:0px; 
+    z-index:200000;
+
+}
+.plan_description{
+    color:white;
+    font-family: Quicksand;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+.plan_name{
+    color:white;
+    font-family: Quicksand;
+    font-size: 60px;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+.subscribe_button{
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    left: 1%;
+    margin: 10px;
+    font-size: 20px;
+    font-family: "Quicksand";
+    background: transparent;
+    border: 1px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 0px 3px 3px 3px;
+    color: rgb( 255, 255, 255 );
+
+}
+
+
+.subscribe_button:hover{
+    background: white;
+    color:#BFBFBF;
+
+}
+
+#gear_account_show{
+
+    display:none;
+    width: 12%;
+    background-color: transparent;
+    box-shadow: 0 0 20px #000;
+    font-family:Verdana, Geneva, sans-serif;
+    font-size:11px;
+    position: fixed;
+    opacity: 0.73;
+    text-align: center;
+    position: fixed;
+    z-index: 30;
+    top:0px;
+    right: 0px;
+    height: 100%;
+
+}
+.gear_icon_small{
+    display: inline-block;
+    position: relative;
+    margin: 0px;
+    margin-top: 15px;
+    width: 100%;
+    font-size: 17px;
+    font-family: "Quicksand";
+    background: transparent;
+    padding: 10px 10px 10px 10px;
+    color: rgb( 255, 255, 255 );
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+
+.gear_icon_small:hover{
+
+    background: white;
+    color:black;
+    /*    opacity: 0.4;*/
+}
+
+.close_image_gear{ 
+    background-image: url("../img/close_red.png");
+    position: relative;
+    z-index: 1;
+    top: 5px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    left: 40%;
+}
+#helpnsupport_side_menu{
+    display:none;
+}
