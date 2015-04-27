@@ -18,8 +18,8 @@ function start_first_popup(x) {
 
 
 function close_start_first_popup() {
-    $("#home_start_first_popup").hide("fast");
-    $("#pop_up_background").hide('slow');
+    $("#home_start_first_popup").hide();
+    $("#pop_up_background").hide();
     $("#login_link").show();
     window.scroll(0, 0);
 }
